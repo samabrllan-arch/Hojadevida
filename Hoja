@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Diana Carolina Jiménez Vega</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+<style id="style-style.css">/* style.css */
+:root {
+    /* --- PALETA DE COLORES "EJECUTIVA" --- */
+    /* Azul marino profundo para dar seriedad */
+    --primary-blue: #1e3c72; 
+    /* Azul noche casi negro para el fondo y profundidad */
+    --dark-blue: #0f172a;    
+    /* Azul cielo suave para resaltar sin ser "neón" (más elegante) */
+    --accent-cyan: #6dd5ed;  
+    
+    /* Variables para el efecto cristal (Ajustadas para ser más sutiles) */
+    --glass-bg: rgba(255, 255, 255, 0.08); 
+    --glass-border: rgba(255, 255, 255, 0.15);
+    
+    /* Textos */
+    --text-white: #ffffff;
+    --text-gray: #e2e8f0; /* Un gris perla muy legible */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Degradado más profundo y sobrio */
+    background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+    color: var(--text-white);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Fondo con degradado sutil */
+.bg-animation {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    /* Ajustado para ser menos intrusivo */
+    background: radial-gradient(circle at 50% 50%, rgba(30, 60, 114, 0.3), transparent 70%);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- TARJETAS DE CRISTAL --- */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px); /* Mayor desenfoque para más elegancia */
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4); /* Sombra más suave */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* --- HEADER --- */
+header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Borde más fino para verse más delicado */
+    border: 3px solid var(--accent-cyan);
+    box-shadow: 0 0 25px rgba(109, 213, 237, 0.3);
+    margin-bottom: 15px;
+    background-color: var(--dark-blue);
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: var(--accent-cyan);
+    font-weight: 300;
+    font-size: 1.1rem;
+    letter-spacing: 3px; /* Más espaciado da sensación de lujo */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.contact-pill {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--text-white);
+    font-size: 0.9rem;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s;
+}
+
+.contact-pill:hover {
+    background: var(--accent-cyan);
+    color: var(--dark-blue);
+    font-weight: 600;
+    border-color: var(--accent-cyan);
+}
+
+/* --- TÍTULOS DE SECCIÓN --- */
+.section-title {
+    font-size: 1.5rem;
+    color: var(--accent-cyan);
+    border-bottom: 1px solid rgba(109, 213, 237, 0.3); /* Línea más fina */
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+/* --- LÍNEA DE TIEMPO (TIMELINE) --- */
+.timeline {
+    position: relative;
+    padding-left: 25px;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item {
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    position: absolute;
+    left: -33px;
+    top: 6px;
+    box-shadow: 0 0 10px rgba(109, 213, 237, 0.6);
+}
+
+.job-content h4 {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.company {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--accent-cyan);
+    margin-bottom: 10px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.job-content p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+/* --- GRILLAS --- */
+.education-grid, .ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.edu-card, .ref-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 3px solid var(--accent-cyan);
+    transition: background 0.3s;
+}
+
+.edu-card:hover, .ref-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.note {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 0.85rem;
+    opacity: 0.6;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 40px;
+}
+
+/* --- ANIMACIONES --- */
+.fade-in { opacity: 0; animation: fadeIn 1s forwards; }
+.slide-up { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.slide-up.visible { opacity: 1; transform: translateY(0); }
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Responsivo para móviles */
+@media (max-width: 600px) {
+    h1 { font-size: 1.8rem; }
+    .contact-info { flex-direction: column; }
+    .glass-card { padding: 25px 20px; }
+}</style>
+</head>
+<body>
+
+    <div class="bg-animation"></div>
+
+    <div class="container">
+        
+        <header class="glass-card fade-in">
+            <div class="profile-container">
+                <img src="https://drive.google.com/thumbnail?id=1xtZ-Rx66GI6Hul5xhAtpXnZwvQdSAuqZ&sz=w1000" 
+                     alt="Diana Carolina Jiménez Vega" 
+                     class="profile-img" 
+                     id="profile-pic">
+            </div>
+            
+            <h1>Diana Carolina Jiménez Vega</h1>
+            <h2 class="subtitle">ADMINISTRADORA TURÍSTICA Y HOTELERA</h2>
+            
+            <div class="contact-info">
+                <span class="contact-pill">📍 Fontibón, Bogotá</span>
+                <a href="mailto:diana.jimenez.v@hotmail.com" class="contact-pill">📧 diana.jimenez.v@hotmail.com</a>
+                <a href="tel:+573138960096" class="contact-pill">📱 313 896 00 96</a>
+            </div>
+        </header>
+
+        <section class="glass-card slide-up">
+            <h3 class="section-title">Perfil Profesional</h3>
+            <p>
+                Profesional en administración Turística y Hotelera con conocimientos de Microsoft Office.
+                Soy una persona proactiva y eficiente con capacidad de análisis, recursividad, manejo de información confidencial, poder de decisión y organización.
+                Cuento con grandes expectativas de superación, alta capacidad de relaciones interpersonales y trabajo en equipo.
+            </p>
+        </section>
+
+        <section class="glass-card slide-up">
+            <h3 class="section-title">Experiencia Laboral</h3>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="job-content">
+                        <h4>Agente General</h4>
+                        <span class="company">Outsourcing S.A | Feb 2025 - Dic 2025</span>
+                        <p>Garantizar una experiencia de servicio al cliente de alta calidad, gestionando requerimientos, PQRS y soporte general a través de canales telefónicos y digitales. Ejecución de estrategias de contacto (inbound/outbound) asegurando la trazabilidad en CRM y el cumplimiento de objetivos operativos como la resolución en primer contacto.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="job-content">
+                        <h4>Agente General</h4>
+                        <span class="company">Outsourcing S.A | Feb 2024 - Dic 2024</span>
+                        <p>Gestión integral de atención al cliente vía telefónica y digital, asegurando la resolución eficiente de consultas y PQR. Registro detallado de interacciones en CRM y cumplimiento estricto de indicadores de desempeño (KPIs) y estándares de calidad.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="job-content">
+                        <h4>Agente de Experiencias</h4>
+                        <span class="company">Konecta | Feb 2023 - Ene 2024</span>
+                        <p>Atención de inquietudes de compra de los usuarios, facilitando su experiencia mediante soporte y acompañamiento constante en cada paso del proceso.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="job-content">
+                        <h4>Creador de Experiencias</h4>
+                        <span class="company">Emtelco S.A.S | Feb 2022 - Nov 2022</span>
+                        <p>Atención al usuario con enfoque empático, brindando contexto sobre las acciones realizadas durante la llamada para garantizar la satisfacción del cliente corporativo y de la compañía.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="job-content">
+                        <h4>Operario de Planta</h4>
+                        <span class="company">Proalpet SA | Ene 2020 - Oct 2021</span>
+                        <p>Ejecución eficiente de procesos de empaque de producto terminado.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="job-content">
+                        <h4>Auxiliar Operativo</h4>
+                        <span class="company">Woden Colombia SAS | Jun 2018 - May 2019</span>
+                        <p>Gestión operativa enfocada en el empaque y despacho de mercancía.</p>
+                    </div>
+                </div>
+                
+                 <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="job-content">
+                        <h4>Ventas y Atención al Cliente</h4>
+                        <span class="company">Comercial Papelera | Nov 2015 - Oct 2016</span>
+                        <p>Atención directa al cliente, gestión de ventas y organización logística de mercancía.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-card slide-up">
+            <h3 class="section-title">Formación Académica</h3>
+            <div class="education-grid">
+                <div class="edu-card">
+                    <h4>Administrador Turístico y Hotelero</h4>
+                    <p>Corporación Unificada de Educación Superior (CUN)</p>
+                    <small>Finalización: 2014</small>
+                </div>
+                <div class="edu-card">
+                    <h4>Bachiller Académico</h4>
+                    <p>Colegio Gimnasio Real de Colombia</p>
+                    <small>2008</small>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-card slide-up">
+            <h3 class="section-title">Referencias</h3>
+            <p class="note">* Contacto disponible bajo solicitud</p>
+            <div class="ref-grid">
+                <div class="ref-item">Helen Lorena Tilagui <br><span>Animador 3D</span></div>
+                <div class="ref-item">Oscar Wilson Tilagui <br><span>Ingeniero Industrial</span></div>
+                <div class="ref-item">Rosa Elena Vega Olaya <br><span>Ama de casa</span></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Diana Carolina Jiménez Vega</p>
+        </footer>
+    </div>
+
+    
+
+
+<script id="script-script.js">/* script.js */
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. ANIMACIONES AL HACER SCROLL (Intersection Observer)
+    // Esto hace que las secciones aparezcan suavemente cuando bajas
+    const observerOptions = {
+        threshold: 0.1 // Se activa cuando el 10% del elemento es visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Dejar de observar una vez animado
+            }
+        });
+    }, observerOptions);
+
+    // Seleccionamos todos los elementos con la clase .slide-up
+    const elementsToAnimate = document.querySelectorAll('.slide-up');
+    elementsToAnimate.forEach(el => observer.observe(el));
+
+
+    // 2. ARREGLO DE IMAGEN DE DRIVE
+    // Si la imagen de Drive falla (error 403/404), ponemos un avatar por defecto
+    const profilePic = document.getElementById('profile-pic');
+    
+    profilePic.onerror = function() {
+        console.log("La imagen de Drive falló al cargar. Usando imagen de respaldo.");
+        // Usamos una imagen genérica profesional si la tuya falla
+        this.src = 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png';
+        this.style.border = '4px solid #ff4444'; // Borde rojo para avisarte que es el respaldo
+    };
+    
+    // 3. EFECTO GENIAL: TÍTULO DINÁMICO
+    // Cambia el título de la pestaña si el usuario sale de la página
+    let docTitle = document.title;
+    window.addEventListener("blur", () => {
+        document.title = "¡Vuelve aquí! 💼";
+    });
+    window.addEventListener("focus", () => {
+        document.title = docTitle;
+    });
+
+});</script>
+</body>
+</html>
